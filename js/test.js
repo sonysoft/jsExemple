@@ -76,6 +76,23 @@ let appData = {
             let question = prompt("Напишите 3 категории расходов из 3/"+i);
             appData.expenses[i] = question;
         }
+    },
+    chooseIncomes:function() {
+        let items =  prompt("Что принесёт дополнительный доход? (Укажите данные через запятую)");
+        while(items == '' || items == null )
+        {
+            items =  prompt("Что принесёт дополнительный доход? (Укажите данные через запятую)");
+        }
+        appData.income = items.split(", ");
+        appData.income.push(prompt("Может сто-то ещё?"));
+        appData.income.sort();
+        appData.income.forEach(function(item,index,income) {console.log(index+1 + ":" + "item - " + item);});
+    },
+    displayInfo: function(){
+        for(let index in appData)
+        {
+            console.log("В appData содержится: " + index);
+        }
     }
 };
 
